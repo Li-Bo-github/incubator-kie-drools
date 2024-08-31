@@ -2108,9 +2108,9 @@ public class AccumulateTest extends BaseModelTest {
                 "import " + Person.class.getCanonicalName() + ";\n" +
                 "rule R when\n" +
                 "  $persons : List( size > 0 ) from collect ( Person() )\n" +
-                "  Person( $age : getAge(), $name : getName() ) from $persons\n" +
+                "  $person : Person() from $persons\n" +
                 "then\n" +
-                "  System.out.println($name + \"' is \" + $age);\n" +
+                "  System.out.println($person.getName() + \"' is \" + $person.getAge());\n" +
                 "end";
 
         KieSession ksession = getKieSession(str);
