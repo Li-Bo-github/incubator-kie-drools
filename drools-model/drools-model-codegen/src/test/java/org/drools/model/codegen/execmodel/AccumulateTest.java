@@ -2108,7 +2108,7 @@ public class AccumulateTest extends BaseModelTest {
                 "import " + Person.class.getCanonicalName() + ";\n" +
                 "rule R when\n" +
                 "  $persons : List( size > 0 ) from collect ( Person() )\n" +
-                "  Person( $age : age, $name : name ) from $persons\n" +
+                "  Person( $age : getAge(), $name : getName() ) from $persons\n" +
                 "then\n" +
                 "  System.out.println($name + \"' is \" + $age);\n" +
                 "end";
